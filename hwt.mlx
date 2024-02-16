@@ -1,0 +1,27 @@
+x0=0; xm = 5; tn = 0.25; h = 0.5; k=0.05; c2=2;
+f = @(x) x.^2.*(25-x.^2);
+[x,t,u] = FT_Heat(x0,xm,tn,h,k,c2,f);
+fprintf('Numerical solution of the given equation is : \n'); 
+disp(u);
+plot(x,u);
+grid on;
+xlabel('x - values');
+ylabel('Solution at specified t - values'); 
+title('Numerical solution of 1-D Heat equation');
+
+
+function [x,t,u] = FT_Heat(x0,xm,tn,h,k,c2,f)
+lambda=c2*k/h^2;
+x=x0:h:xm;
+n=length(x);
+t=0:k:tn;
+m=length(t);
+u=zeros(n,m);
+u(:,1)=f(x);
+for j=1:m-1
+for i=2:n-1
+u(i,j+1)= lambda*u(i-1,j)+(1-2*lambda)*u(i,j)+lambda*u(i+1,j);
+end 
+end
+end
+

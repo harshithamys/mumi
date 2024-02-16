@@ -1,0 +1,24 @@
+syms x
+a=-pi; 
+b=pi; 
+I=[a b];
+l=(b-a)/2 
+y = exp(x);
+
+a0 = vpa((1/l)*int(y,x,a,b),3); 
+for n= 1:i
+an = (1/l)*int(y*cos((n*pi*x)/l),x,I); 
+end
+F=vpa((a0/2)+sum,3) 
+
+fplot(x,y,I)
+
+grid on; hold on;
+fplot(x,F,I)
+title('Fourier Series of a function')
+
+legend('Function', 'Its Fourier Series') 
+hold off
+
+
+
