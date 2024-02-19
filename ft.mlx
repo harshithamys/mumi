@@ -1,6 +1,0 @@
-clc
-clear
-syms t
-f=exp(-1*abs(t))
-F=fourier(f)
-fplot(F)

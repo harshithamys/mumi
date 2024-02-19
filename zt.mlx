@@ -1,6 +1,0 @@
-clc
-clear
-syms n
-f=n*(1-(1/n))
-Z=ztrans(f)
-fplot(Z)
